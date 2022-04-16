@@ -5,8 +5,10 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const navigate = useNavigate();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -18,7 +20,10 @@ export default function Header() {
             aria-label="menu"
             sx={{ mr: 2 }}
           ></IconButton>
-          <ArrowBackIcon sx={{ position: "absolute", left: "5%" }} />
+          <ArrowBackIcon
+            onClick={() => navigate(-1)}
+            sx={{ position: "absolute", left: "5%" }}
+          />
           <Typography
             variant="h6"
             component="div"

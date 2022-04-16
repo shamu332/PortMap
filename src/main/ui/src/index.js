@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Scanner from "./pages/Scanner";
-import Header from "./Header";
 
 ReactDOM.render(
   <>
