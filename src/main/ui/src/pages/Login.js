@@ -50,7 +50,6 @@ function Login() {
           />
         </div>
         <div style={{ position: "relative", top: "5%" }}>
-          {/* <Link to="/scanner">Scanner</Link> */}
           <Button
             variant="contained"
             onClick={() => {
