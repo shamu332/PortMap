@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Scanner from "./pages/Scanner";
+import AccountCreation from "./pages/AccountCreation";
 
 ReactDOM.render(
   <>
@@ -10,6 +11,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/scanner" element={<Scanner />} />
+        <Route path="/accountCreation" element={<AccountCreation />} />
       </Routes>
     </Router>
   </>,

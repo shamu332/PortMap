@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
   const adminUsername = "admin";
@@ -60,6 +60,17 @@ function Login() {
           >
             LOGIN
           </Button>
+        </div>
+        <div
+          style={{
+            fontSize: "50%",
+            textAlign: "left",
+            position: "relative",
+            top: "9%",
+            left: "2%",
+          }}
+        >
+          <Link to="/accountCreation">Create an account</Link>
         </div>
       </Box>
     </>
