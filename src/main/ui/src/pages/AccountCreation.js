@@ -31,7 +31,7 @@ function AccountCreation() {
         <div
           style={{
             position: "relative",
-            top: "10%",
+            top: "12%",
             display: "flex",
             justifyContent: "space-between",
             flexDirection: "column",
@@ -45,13 +45,25 @@ function AccountCreation() {
             onChange={(e) => setUsername(e.target.value)}
           />
           <TextField
+            id="FirstName"
+            label="First Name"
+            variant="outlined"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <TextField
+            id="lastName"
+            label="Last Name"
+            variant="outlined"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <TextField
             id="password"
             label="Password"
             type="password"
             onChange={(e) => setFirstPassword(e.target.value)}
           />
           <TextField
-            id="password"
+            id="password2"
             label="Confrim Password"
             onChange={(e) => setSecondPassword(e.target.value)}
             type="password"
