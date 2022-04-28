@@ -23,7 +23,7 @@ public class Scanner {
         ExecutorService executorService = Executors.newFixedThreadPool(50);
         AtomicInteger port = new AtomicInteger(0);
         long startTime = System.currentTimeMillis();
-        while (port.get() < 4000) {
+        while (port.get() < 6000) {
             final int currentPort = port.getAndIncrement();
             executorService.submit(() -> {
                 try {
