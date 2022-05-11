@@ -11,6 +11,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("api/v1/user")
 @RestController
 public class UserController {
@@ -26,6 +27,7 @@ public class UserController {
     public void addUser(@Valid @NonNull @RequestBody User user) {
         userService.addUser(user);
     }
+
 
     @GetMapping
     public List<User> getAllUser() {

@@ -1,6 +1,7 @@
 package com.network.backend.dao;
 import com.network.backend.model.User;
 
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
