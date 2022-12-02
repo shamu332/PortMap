@@ -28,18 +28,14 @@ function AccountCreation() {
         .then((response) => console.log(response))
         .catch((error) => {
           console.error("There was an error!", error);
-          console.log(obj);
+          alert(
+            "Sorry! Something wrong with our servers! Please check in again later!"
+          );
         });
     } else {
       alert("Confrimation password and password input do not match!");
     }
   };
-
-  // const onCreate = () => {
-  //   axios.get("http://localhost:8080/api/v1/user/").then(function (response) {
-  //     console.log(response);
-  //   });
-  // };
 
   return (
     <>
