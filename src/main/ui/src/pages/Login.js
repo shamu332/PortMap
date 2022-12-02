@@ -3,16 +3,25 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
-  const adminUsername = "admin";
-  const adminPassword = "admin123";
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   let navigate = useNavigate();
 
-  const handleRouting = () => {
-    return username === adminUsername && password === adminPassword;
+  const isAuth = () => {
+    let obj = {
+      username: username,
+      password: password,
+    };
+    axios
+      .post("http://localhost:8080/api/v1/user/login", obj)
+      .then((response) => console.log(response))
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
+    return false;
   };
 
   return (
@@ -53,7 +62,7 @@ function Login() {
           <Button
             variant="contained"
             onClick={() => {
-              handleRouting()
+              isAuth()
                 ? navigate(`/scanner`)
                 : alert("Wrong Username/Password Combination!");
             }}

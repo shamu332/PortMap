@@ -14,16 +14,16 @@ import java.lang.*;
 public class Scanner {
 
     public static void main(String[] args) {
-        List openPorts = portScan("127.0.0.1");
+        portScan("127.0.0.1");
         //openPorts.forEach(port -> System.out.println("port " + port + " is open"));
     }
 
     public static List portScan(String ip) {
         ConcurrentLinkedQueue openPorts = new ConcurrentLinkedQueue<>();
-        ExecutorService executorService = Executors.newFixedThreadPool(50);
+        ExecutorService executorService = Executors.newFixedThreadPool(200); // higher the treads, the faster the scan will be
         AtomicInteger port = new AtomicInteger(0);
         long startTime = System.currentTimeMillis();
-        while (port.get() < 6000) {
+        while (port.get() < 10000) {
             final int currentPort = port.getAndIncrement();
             executorService.submit(() -> {
                 try {
