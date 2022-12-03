@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.lang.*;
 
-public class Scanner {
+public class ScannerServices {
 
     public static void main(String[] args) {
         portScan("127.0.0.1");
