@@ -8,18 +8,12 @@ public class User {
     private final UUID id;
     @NotBlank
     private final String username;
-
     private final String first_name;
     private final String last_name;
-
     @NotBlank
     private final String password;
-
-    @NotBlank
     private final String email;
 
-    private final String create_date;
-    private final String create_time;
 
 
     public User(@JsonProperty("id") UUID id,
@@ -27,17 +21,14 @@ public class User {
                 @JsonProperty("first_name") String first_name,
                 @JsonProperty("last_name") String last_name,
                 @JsonProperty("password") String password,
-                @JsonProperty("email") String email,
-                @JsonProperty("create_date") String create_date,
-                @JsonProperty("create_time") String create_time) {
+                @JsonProperty("email") String email
+                ) {
         this.id = id;
         this.username = username;
         this.first_name = first_name;
         this.last_name = last_name;
         this.password = password;
         this.email = email;
-        this.create_date = create_date;
-        this.create_time = create_time;
     }
 
     public UUID getId() {
@@ -60,11 +51,4 @@ public class User {
         return email;
     }
 
-    public String getCreate_date() {
-        return create_date;
-    }
-
-    public String getCreate_time() {
-        return create_time;
-    }
 }
