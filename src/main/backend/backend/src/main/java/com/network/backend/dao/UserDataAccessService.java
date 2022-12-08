@@ -66,14 +66,21 @@ public class UserDataAccessService {
 
 
 
-//    public int selectUserByUsername(User user) {
-//        String sql = "select " + " username" + ", password from users where username = ?";
-//        int q = jdbcTemplate.update(sql, user.getUsername());
-//        return (resultSet, i) -> {
-//            String username = resultSet.getString("username");
-//            String password = resultSet.getString("password");
-//        };
-//    }
+    public List<User> selectUserByUsername(String username,String password) {
+        final String sql = "select username , password from users where username = ?";
+        return (List<User>) jdbcTemplate.queryForRowSet(sql);
+//        return jdbcTemplate.query(sql, (resultSet, i) -> {
+//            UUID id = UUID.fromString(resultSet.getString("id"));
+//            String result_username = resultSet.getString("username");
+//            String first_name = resultSet.getString("first_name");
+//            String last_name = resultSet.getString("last_name");
+//            String result_password = resultSet.getString("password");
+//            String email = resultSet.getString("email");
+//            return new User(id, result_username, first_name, last_name,result_password, email);
+//        });
+
+        // return jdbcTemplate.queryForObject(sql, new Object[]{id}, new CustomerRowMapper());
+    }
 
 
     public int deleteUSerById(UUID id) {

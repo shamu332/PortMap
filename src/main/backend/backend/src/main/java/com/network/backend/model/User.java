@@ -5,14 +5,14 @@ import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
 public class User {
-    private final UUID id;
+    public UUID id;
     @NotBlank
-    private final String username;
-    private final String first_name;
-    private final String last_name;
+    public String username;
+    public String first_name;
+    public String last_name;
     @NotBlank
-    private final String password;
-    private final String email;
+    public String password;
+    public String email;
 
 
 
@@ -30,6 +30,7 @@ public class User {
         this.password = password;
         this.email = email;
     }
+
 
     public UUID getId() {
         return id;

@@ -12,7 +12,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
 import java.util.UUID;
 
@@ -90,9 +89,9 @@ public class UserService {
         return hashedPassword;
     }
 
-//    public int getUserByUsername(User user) {
-//        return userDao.selectUserByUsername(user);
-//    }
+    public List<User> getUserByUsername(String username, String password) {
+        return userDao.selectUserByUsername(username,password);
+    }
 
     public int deleteUser(UUID id) {
         return userDao.deleteUSerById(id);
@@ -101,4 +100,5 @@ public class UserService {
     public int updateUser(UUID id, User newUser) {
         return userDao.updateUserPasswordById(id, newUser);
     }
+
 }
