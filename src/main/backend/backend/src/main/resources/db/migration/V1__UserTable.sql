@@ -7,4 +7,5 @@ create table Users (
     email varchar(255) not null,
     create_date varchar(255) not null,
     create_time varchar(255) not null
+
 );
