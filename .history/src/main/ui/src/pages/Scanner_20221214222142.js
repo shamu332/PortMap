@@ -13,34 +13,20 @@ function Scanner() {
     setLoader(!loader);
   }
 
-  const sendIp = () => {
+  const onSend = () => {
     let obj = {
       ip_address: ipAddress,
     };
     axios
       .post("http://localhost:8080/api/v1/scanner", obj)
-      .then((response) => {
-        console.log("Post request is: ", response.status);
-        return getIp(response.status);
-      })
+      .then((response) => console.log("Post Request sucessful: ", response))
       .catch((error) => {
-        console.error("There was an error!", error);
-        alert("Sorry! There was an issue posting to the database!");
+        console.error(
+          "There was an error with posting to our database!",
+          error
+        );
+        alert("There was an error with posting to our database!");
       });
-  };
-
-  const getIp = (responsefromPost) => {
-    if (responsefromPost === 200) {
-      axios
-        .get(`http://localhost:8080/api/v1/scanner/${ipAddress}`)
-        .then((response) => console.log(response.data))
-        .catch((error) => {
-          console.error("There was an error!", error);
-          alert("Sorry! There was an issue fetching from the database!");
-        });
-    } else {
-      alert("Sorry! There is an issue with our Servers!");
-    }
   };
 
   return (
@@ -95,7 +81,7 @@ function Scanner() {
             <Button
               variant="contained"
               onClick={() => {
-                sendIp();
+                onSend();
               }}
             >
               SCAN

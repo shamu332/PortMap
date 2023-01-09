@@ -8,38 +8,35 @@ import axios from "axios";
 function Scanner() {
   const [loader, setLoader] = useState(false);
   const [ipAddress, setIpAddress] = useState("");
+  const [responseData, setResponseData] = useState("");
 
   function toggleLoader() {
     setLoader(!loader);
   }
 
-  const sendIp = () => {
+  const onSend = async () => {
     let obj = {
       ip_address: ipAddress,
     };
-    axios
-      .post("http://localhost:8080/api/v1/scanner", obj)
-      .then((response) => {
-        console.log("Post request is: ", response.status);
-        return getIp(response.status);
-      })
+    await axios
+      .post("http://localhost:8080/api/v1/user", obj)
+      .then(
+        (response) => console.log(response),
+        setResponseData(response.data.status)
+      )
       .catch((error) => {
         console.error("There was an error!", error);
-        alert("Sorry! There was an issue posting to the database!");
       });
-  };
-
-  const getIp = (responsefromPost) => {
-    if (responsefromPost === 200) {
+    if (responseData === 200) {
       axios
-        .get(`http://localhost:8080/api/v1/scanner/${ipAddress}`)
-        .then((response) => console.log(response.data))
+        .get("http://localhost:8080/api/v1/user", obj)
+        .then((response) => console.log(response))
         .catch((error) => {
           console.error("There was an error!", error);
           alert("Sorry! There was an issue fetching from the database!");
         });
     } else {
-      alert("Sorry! There is an issue with our Servers!");
+      alert("Sorry! There was an issue posting to the database!");
     }
   };
 
@@ -95,7 +92,7 @@ function Scanner() {
             <Button
               variant="contained"
               onClick={() => {
-                sendIp();
+                onSend();
               }}
             >
               SCAN

@@ -26,8 +26,8 @@ public class ScannerController {
         scannerServices.portScan(scanner);
     }
 
-    @GetMapping
-    public Optional<Scanner> getScanResults(@Valid @RequestBody Scanner scanner) {
+    @GetMapping("{ip_address}")
+    public Optional<Scanner> getScanResults(Scanner scanner) {
         return ScannerServices.getOpenPorts(scanner);
     }
 }

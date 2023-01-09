@@ -17,23 +17,22 @@ function Scanner() {
     let obj = {
       ip_address: ipAddress,
     };
-    axios
-      .post("http://localhost:8080/api/v1/scanner", obj)
-      .then((response) => {
-        console.log("Post request is: ", response.status);
-        return getIp(response.status);
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
-        alert("Sorry! There was an issue posting to the database!");
-      });
-  };
+   axios
+  .post("http://localhost:8080/api/v1/scanner", obj)
+  .then((response) => {
+    return getIp(response.status, obj);
+  })
+  .catch((error) => {
+    console.error("There was an error!", error);
+    alert("Sorry! There was an issue posting to the database!")
+  });
+  }
 
-  const getIp = (responsefromPost) => {
+  const getIp = (responsefromPost, object) => {
     if (responsefromPost === 200) {
       axios
-        .get(`http://localhost:8080/api/v1/scanner/${ipAddress}`)
-        .then((response) => console.log(response.data))
+        .get("http://localhost:8080/api/v1/scanner", object)
+        .then((response) => console.log(response))
         .catch((error) => {
           console.error("There was an error!", error);
           alert("Sorry! There was an issue fetching from the database!");
@@ -41,6 +40,9 @@ function Scanner() {
     } else {
       alert("Sorry! There is an issue with our Servers!");
     }
+  
+  }
+
   };
 
   return (

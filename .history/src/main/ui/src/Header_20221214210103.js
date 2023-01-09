@@ -27,7 +27,7 @@ export default function Header() {
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, position: "absolute", left: "40%" }}
+            sx={{ flexGrow: 1, position: "absolute", left: "25%" }}
           >
             Port Map
           </Typography>

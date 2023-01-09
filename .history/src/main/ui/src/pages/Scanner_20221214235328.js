@@ -18,30 +18,33 @@ function Scanner() {
       ip_address: ipAddress,
     };
     axios
-      .post("http://localhost:8080/api/v1/scanner", obj)
+      .get("http://localhost:8080/api/v1/scanner", obj)
       .then((response) => {
-        console.log("Post request is: ", response.status);
-        return getIp(response.status);
+        console.log(obj);
+        console.log(response);
+        // return getIp(response.status, obj);
       })
       .catch((error) => {
+        console.log(obj);
         console.error("There was an error!", error);
         alert("Sorry! There was an issue posting to the database!");
       });
   };
 
-  const getIp = (responsefromPost) => {
-    if (responsefromPost === 200) {
-      axios
-        .get(`http://localhost:8080/api/v1/scanner/${ipAddress}`)
-        .then((response) => console.log(response.data))
-        .catch((error) => {
-          console.error("There was an error!", error);
-          alert("Sorry! There was an issue fetching from the database!");
-        });
-    } else {
-      alert("Sorry! There is an issue with our Servers!");
-    }
-  };
+  // const getIp = (responsefromPost, object) => {
+  //   console.log("Response with object:", object);
+  //   if (responsefromPost === 200) {
+  //     axios
+  //       .get("http://localhost:8080/api/v1/scanner", object)
+  //       .then((response) => console.log(response))
+  //       .catch((error) => {
+  //         console.error("There was an error!", error);
+  //         alert("Sorry! There was an issue fetching from the database!");
+  //       });
+  //   } else {
+  //     alert("Sorry! There is an issue with our Servers!");
+  //   }
+  // };
 
   return (
     <>

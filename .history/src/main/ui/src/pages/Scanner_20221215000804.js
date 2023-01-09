@@ -14,11 +14,8 @@ function Scanner() {
   }
 
   const sendIp = () => {
-    let obj = {
-      ip_address: ipAddress,
-    };
     axios
-      .post("http://localhost:8080/api/v1/scanner", obj)
+      .get(`http://localhost:8080/api/v1/scanner/${ipAddress}`)
       .then((response) => {
         console.log("Post request is: ", response.status);
         return getIp(response.status);
@@ -30,9 +27,12 @@ function Scanner() {
   };
 
   const getIp = (responsefromPost) => {
+    let obj = {
+      ip_address: ipAddress,
+    };
     if (responsefromPost === 200) {
       axios
-        .get(`http://localhost:8080/api/v1/scanner/${ipAddress}`)
+        .get("http://localhost:8080/api/v1/scanner", obj)
         .then((response) => console.log(response.data))
         .catch((error) => {
           console.error("There was an error!", error);
