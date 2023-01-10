@@ -4,12 +4,10 @@ import Header from "../Header";
 import TextField from "@mui/material/TextField";
 import CircularProgress from "@mui/material/CircularProgress";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 function Scanner() {
   const [loader, setLoader] = useState(false);
   const [ipAddress, setIpAddress] = useState("");
-  let navigate = useNavigate();
 
   function toggleLoader() {
     setLoader(!loader);
@@ -35,11 +33,7 @@ function Scanner() {
     if (responsefromPost === 200) {
       axios
         .get(`http://localhost:8080/api/v1/scanner/${ipAddress}`)
-        .then((response) => {
-          console.log(response.data);
-          localStorage.setItem("results", JSON.stringify(response.data));
-          navigate(`/results`);
-        })
+        .then((response) => console.log(response.data))
         .catch((error) => {
           console.error("There was an error!", error);
           alert("Sorry! There was an issue fetching from the database!");
@@ -100,10 +94,10 @@ function Scanner() {
             </Button> */}
             <Button
               variant="contained"
-              onClick={() => {
+              onClick="
                 toggleLoader();
                 sendIp();
-              }}
+              "
             >
               SCAN
             </Button>
