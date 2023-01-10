@@ -1,6 +1,0 @@
-app:
-  datasource:
-    jdbc-url: jdbc:postgresql://localhost:5432/portmap
-    username: postgres
-    password: systempassword
-    pool-size: 30
