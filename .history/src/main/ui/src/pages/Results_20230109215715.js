@@ -10,7 +10,7 @@ function Results() {
 
   openedPorts.forEach((port) => {
     ports.push(
-      <p onClick={()=> window.open(`https://www.google.com/search?q=port+${port}`)}
+      <p
         style={{
           border: "solid 3px #4D545E",
           textAlign: "center",
@@ -23,7 +23,7 @@ function Results() {
       </p>
     );
   });
-// https://www.google.com/search?q=port+22
+
   const statement = `Scanning of IP: ${ipAddress} took ${waitTime} seconds`;
   return (
     <>
